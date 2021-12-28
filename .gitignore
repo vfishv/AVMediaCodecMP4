@@ -1,5 +1,7 @@
 app/build
 app/.externalNativeBuild
+app/.cxx
+app/build/
 .idea/
 .gradle/
 AVMediaCodecMP4.iml
