@@ -6,7 +6,7 @@ package com.example.apadmin.cameraphoto;
 public class YuvEngineWrap {
     private long cPtr;
     private static YuvEngineWrap mInstance;
-    private static Object lockobj = new Object();
+    private static final Object lockobj = new Object();
 
     private YuvEngineWrap() {
         cPtr = 0;
