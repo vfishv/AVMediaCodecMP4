@@ -163,8 +163,16 @@ public class VideoGather {
                     }
                 }
             }
+            if (previewSize == null) {
+                for (Camera.Size size : supportedPreviewSizes) {
+                    if (size.height == 480 && size.width == 640) {
+                        previewSize = size;
+                    }
+                }
+            }
             preWidth = previewSize.width;
             preHeight = previewSize.height;
+            Log.d(TAG, "setCameraParamter: " + preWidth + "x" + preHeight);
             mCameraParamters.setPreviewSize(previewSize.width, previewSize.height);
 
             //set fps range.

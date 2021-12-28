@@ -9,6 +9,8 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.util.Log;
 
+import java.io.File;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -42,6 +44,16 @@ public class AVmediaMuxer{
         if (loop) {
             throw new RuntimeException("====zhongjihao====MediaMuxer线程已经启动===");
         }
+
+        Log.e(TAG, "initMediaMuxer: " + outfile);
+        try {
+            File f = new File(outfile);
+            f.getParentFile().mkdirs();
+            f.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         try {
             Log.d(TAG, "====zhongjihao=====创建媒体混合器 start...");
             mediaMuxer = new MediaMuxer(outfile, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);
